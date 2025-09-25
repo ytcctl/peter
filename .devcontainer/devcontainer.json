@@ -1,19 +1,28 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
   "hostRequirements": {
     "cpus": 4
   },
-  "waitFor": "onCreateCommand",
-  "updateContentCommand": "python3 -m pip install -r requirements.txt",
-  "postCreateCommand": "",
+  "forwardPorts": [8888],
+  "postStartCommand": "R -q -e \"if (file.exists('renv.lock')) renv::restore()\"",
   "customizations": {
     "codespaces": {
       "openFiles": []
     },
     "vscode": {
+      "settings": {
+        "r.rpath.linux": "/usr/bin/R",
+        "r.rterm.linux": "/usr/bin/R"
+      },
       "extensions": [
         "ms-toolsai.jupyter",
-        "ms-python.python"
+        "ms-toolsai.jupyter-powertoys",
+        "ms-python.python",
+        "REditorSupport.r",
+        "REditorSupport.r-lsp"
       ]
     }
   }
