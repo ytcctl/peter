@@ -1,3 +1,4 @@
+````markdown
 
 This project configures R as a Jupyter kernel in Codespaces/devcontainer and now uses a Dockerfile based on a pinned rocker image.
 
@@ -30,4 +31,19 @@ Notes
 - The Dockerfile uses `rocker/r-ver:4.3.2` for reproducibility; change the tag only when you intentionally upgrade R.
 - Add any additional system libraries required by R packages into the Dockerfile's `apt-get install` step.
 - Because the image includes IRkernel system-wide, you don't need to run kernel registration in `postCreateCommand` anymore.
+
+
+### In-container browser (noVNC)
+
+After rebuilding the devcontainer the image will run a headless X server, x11vnc, and a Chromium instance served through noVNC.
+
+- noVNC web UI will be available at port 6080 (forwarded in `devcontainer.json`).
+- To open: rebuild the container, then open `http://localhost:6080` in your local browser (or use Codespaces port forwarding UI).
+
+Notes:
+
+- This adds ~200-300MB to the image. If you only need a quick preview, use the `auchenberg.vscode-browser-preview` extension instead.
+- Rebuild required: Command Palette → Dev Containers: Rebuild Container.
+
+````
 
