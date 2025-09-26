@@ -5,6 +5,7 @@ library(gridExtra)
 library(corrplot)
 library(ggcorrplot)
 library(ggpubr)
+library(plotly)
 
 # Function to visualize the distribution of a numeric variable
 visualize_distribution <- function(data, column) {
@@ -205,3 +206,19 @@ visualize_scatter_plot_matrix <- function(data) {
   p <- ggpairs(numeric_data, title = "Scatter Plot Matrix of Numeric Variables")
   print(p)
 }
+
+# Example usage:
+# visualize_scatter_plot_matrix(mtcars) 
+
+# Function to visualize interactive scatter plot using plotly
+visualize_interactive_scatter <- function(data, column1, column2) {
+  p <- plot_ly(data, x = ~get(column1), y = ~get(column2), type = 'scatter', mode = 'markers',
+               marker = list(size = 10, color = 'rgba(152, 0, 0, .8)', line = list(width = 2, color = 'rgb(0, 0, 0)'))) %>%
+    layout(title = paste("Interactive Scatter Plot of", column1, "and", column2),
+           xaxis = list(title = column1),
+           yaxis = list(title = column2))
+  print(p)
+}
+# Example usage:
+# visualize_interactive_scatter(mtcars, "mpg", "wt")
+
