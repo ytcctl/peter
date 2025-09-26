@@ -14,8 +14,8 @@
     },
     "vscode": {
       "settings": {
-        "r.rpath.linux": "/usr/bin/R",
-        "r.rterm.linux": "/usr/bin/R"
+  "r.rpath.linux": "/usr/local/bin/R",
+  "r.rterm.linux": "/usr/local/bin/R"
       },
       "extensions": [
         "ms-toolsai.jupyter",
