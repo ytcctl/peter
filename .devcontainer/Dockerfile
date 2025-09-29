@@ -25,7 +25,9 @@ RUN apt-get update \
 
 # Install JupyterLab and Python requirements
 COPY requirements.txt /tmp/requirements.txt
-RUN python3 -m pip install --no-cache-dir -r /tmp/requirements.txt jupyter jupyterlab jupyter-client websockify
+RUN python3 -m pip install --no-cache-dir jupyter jupyterlab jupyter-client websockify \
+    && python3 -m pip install --no-cache-dir -r /tmp/requirements.txt \
+    && rm -rf /tmp/requirements.txt /root/.cache /tmp/*
 
 # Install noVNC
 RUN git clone --depth 1 https://github.com/novnc/noVNC /opt/noVNC \

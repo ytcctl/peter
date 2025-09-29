@@ -7,7 +7,7 @@
     "cpus": 4
   },
   "forwardPorts": [8888, 6080],
-  "postStartCommand": "R -q -e \"if (file.exists('renv.lock')) renv::restore()\"",
+  "postCreateCommand": "R -q -e \"IRkernel::installspec(user = FALSE)\" && echo 'Dev container setup complete!'",
   "customizations": {
     "codespaces": {
       "openFiles": []

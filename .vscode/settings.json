@@ -1,0 +1,30 @@
+{
+    "r.rpath.linux": "/usr/bin/R",
+    "r.rterm.linux": "/usr/bin/R",
+    "r.rpath": "/usr/bin/R",
+    "r.rterm": "/usr/bin/R",
+    "r.libPaths": [
+        "/home/vscode/R/library",
+        "/usr/local/lib/R/site-library",
+        "/usr/lib/R/site-library",
+        "/usr/lib/R/library"
+    ],
+    "r.lsp.enabled": true,
+    "r.lsp.path": "/usr/bin/R",
+    "r.lsp.args": [
+        "--slave",
+        "-e", 
+        ".libPaths(c('/home/vscode/R/library', .libPaths())); languageserver::run()"
+    ],
+    "r.rterm.option": [
+        "--no-save",
+        "--no-restore"
+    ],
+    "r.sessionWatcher": true,
+    "r.bracketedPaste": true,
+    "r.plot.useHttpgd": true,
+    "r.lsp.debug": true,
+    "r.alwaysUseActiveTerminal": true,
+    "r.source.encoding": "UTF-8",
+    "r.source.focus": "editor"
+}
