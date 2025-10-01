@@ -2,8 +2,11 @@
  "cells": [
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 9,
+=======
    "execution_count": null,
+>>>>>>> d9e80fd (add)
    "id": "c45ce7ce",
    "metadata": {
     "vscode": {
@@ -47,9 +50,15 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 2,
+=======
+<<<<<<< HEAD
    "execution_count": 1,
+=======
    "execution_count": null,
+>>>>>>> d9e80fd (add)
+>>>>>>> d611842 (merge)
    "id": "49e4c982",
    "metadata": {
     "vscode": {
@@ -61,9 +70,14 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
+<<<<<<< HEAD
       "Installing essential R packages...\n",
+=======
+<<<<<<< HEAD
+>>>>>>> d611842 (merge)
       "✓ Essential packages loaded successfully!\n",
-      "Note: Using individual packages instead of full tidyverse to avoid system dependency issues.\n",
+      "Note: Using individual packages instead of full tidyverse to avoid system dependency issues.\n"
+=======
       "Installing package into ‘/usr/local/lib/R/site-library’\n",
       "(as ‘lib’ is unspecified)\n",
       "\n",
@@ -81,6 +95,7 @@
       "Error in install.packages(package, dependencies = TRUE): unable to install packages\nTraceback:\n",
       "1. stop(\"unable to install packages\")",
       "2. .handleSimpleError(function (cnd) \n . {\n .     watcher$capture_plot_and_output()\n .     cnd <- sanitize_call(cnd)\n .     watcher$push(cnd)\n .     switch(on_error, continue = invokeRestart(\"eval_continue\"), \n .         stop = invokeRestart(\"eval_stop\"), error = NULL)\n . }, \"unable to install packages\", base::quote(install.packages(package, \n .     dependencies = TRUE)))"
+>>>>>>> d9e80fd (add)
      ]
     }
    ],
@@ -95,6 +110,7 @@
     "# 3. Engineer new features based on domain knowledge or insights from EDA\n",
     "# 4. Prepare a report summarizing the findings from EDA\n",
     "\n",
+<<<<<<< HEAD
     "# Load necessary libraries with improved error handling ------------------\n",
     ".libPaths(Sys.getenv(\"R_LIBS_USER\"))\n",
     "dir.create(Sys.getenv(\"R_LIBS_USER\"), recursive = TRUE, showWarnings = FALSE)\n",
@@ -120,6 +136,7 @@
     "  library(corrplot, lib.loc = Sys.getenv(\"R_LIBS_USER\"))\n",
     "  library(stringr, lib.loc = Sys.getenv(\"R_LIBS_USER\"))\n",
     "})\n",
+=======
     "# Load necessary libraries -----------------------------------------------------\n",
     "# Set up user library path\n",
     "user_lib <- file.path(Sys.getenv(\"HOME\"), \"R\", \"library\")\n",
@@ -135,6 +152,7 @@
     "    library(package, character.only = TRUE)\n",
     "  }\n",
     "}\n",
+>>>>>>> d9e80fd (add)
     "\n",
     "cat(\"✓ Essential packages loaded successfully!\\n\")\n",
     "cat(\"Note: Using individual packages instead of full tidyverse to avoid system dependency issues.\\n\")"
