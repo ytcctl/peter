@@ -10,11 +10,11 @@
 
 
 # Install essential packages
-install.packages(dplyr)
-install.packages(tidyr)
-install.packages(ggplot2)
-install.packages(corrplot)
-install.packages(stringr)
+install.packages("dplyr")
+install.packages("tidyr")
+install.packages("ggplot2")
+install.packages("corrplot")
+install.packages("stringr")
 
 # load libraries
 library(dplyr)
@@ -23,21 +23,20 @@ library(ggplot2)
 library(corrplot)
 library(stringr)
 
+
 #  Load data 
 tryCatch({
   data <- data.frame(read.csv("A1_data.csv"))
 }, warning = function(w) {
-  
   print(w)
 }, error = function(e) {
   print(e)
 }, finally = {
-print("Data loading attempt finished.")
+  print("Data loading attempt finished.")
 })
 
 # Display the first 20 rows of the dataset
 head(data, n = 20)
-
 
 # View the percentage of missing values in column with numeric value ------------------------------
 numeric_cols <- sapply(data, is.numeric)
