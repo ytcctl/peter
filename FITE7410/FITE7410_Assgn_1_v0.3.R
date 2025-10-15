@@ -8,35 +8,19 @@
 # 3. Engineer new features based on domain knowledge or insights from EDA
 # 4. Prepare a report summarizing the findings from EDA
 
-# Load necessary libraries with improved error handling ------------------
-.libPaths(Sys.getenv("R_LIBS_USER"))
-dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE, showWarnings = FALSE)
+# install necessary libraries ----------
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("tidyr")
+install.packages("corrplot")
+install.packages("stringr")
 
-# Install essential packages individually to avoid tidyverse dependencies
-essential_packages <- c("dplyr", "tidyr", "ggplot2", "corrplot", "stringr")
-install.packages("farver", lib = Sys.getenv("R_LIBS_USER"), repos = "https://cran.r-project.org")
-cat("Installing essential R packages...\n")
-for (pkg in essential_packages) {
-  if (!require(pkg, character.only = TRUE, quietly = TRUE)) {
-    cat("Installing", pkg, "...\n")
-    install.packages(pkg, lib = Sys.getenv("R_LIBS_USER"), 
-                     repos = "https://cran.r-project.org", 
-                     dependencies = TRUE)
-  }
-}
-
-# Load libraries with suppressed startup messages
-suppressPackageStartupMessages({
-  library(dplyr, lib.loc = Sys.getenv("R_LIBS_USER"))
-  library(tidyr, lib.loc = Sys.getenv("R_LIBS_USER"))
-  library(ggplot2, lib.loc = Sys.getenv("R_LIBS_USER"))
-  library(corrplot, lib.loc = Sys.getenv("R_LIBS_USER"))
-  library(stringr, lib.loc = Sys.getenv("R_LIBS_USER"))
-})
-
-cat("✓ Essential packages loaded successfully!\n")
-cat("Note: Using individual packages instead of full tidyverse to avoid system dependency issues.\n")
-
+# load necessary libraries ----------
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(corrplot)
+library(stringr)
 
 #  Load data ----------
 tryCatch({
@@ -634,7 +618,6 @@ addr1_fraud_summary <- data %>%
 print(addr1_fraud_summary)
 
 # visualize the percentage of isFraud by addr1 which is.na and not is.na ----------
-# First, reshape the data for better plotting
 addr1_plot_data <- addr1_fraud_summary %>%
   select(addr1_is_na, FraudPercentage, NonFraudPercentage) %>%
   pivot_longer(cols = c(FraudPercentage, NonFraudPercentage), 
@@ -664,7 +647,6 @@ emaildomain_fraud_percentage <- data %>%
 print(emaildomain_fraud_percentage)
 
 # visualize the percentage of P_emaildomain group by isFraud ----------
-# First, reshape the data for better plotting
 emaildomain_plot_data <- emaildomain_fraud_percentage %>%
   select(P_emaildomain, FraudPercentage, NonFraudPercentage) %>%
   pivot_longer(cols = c(FraudPercentage, NonFraudPercentage),   
@@ -693,7 +675,6 @@ remaildomain_fraud_percentage <- data %>%
          NonFraudPercentage =   (NonFraudCount / (FraudCount + NonFraudCount)) * 100)
 print(remaildomain_fraud_percentage)
 # visualize the percentage of R_emaildomain group by isFraud ----------
-# First, reshape the data for better plotting
 remaildomain_plot_data <- remaildomain_fraud_percentage %>%
   select(R_emaildomain, FraudPercentage, NonFraudPercentage) %>%
   pivot_longer(cols = c(FraudPercentage, NonFraudPercentage), 
